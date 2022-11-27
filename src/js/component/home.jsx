@@ -1,26 +1,25 @@
 import React from "react";
 
-//include images into your bundle
-import rigoImage from "../../img/rigo-baby.jpg";
 
-//create your first component
-const Home = () => {
-	return (
-		<div className="text-center">
-			<h1 className="text-center mt-5">Hello Rigo!</h1>
-			<p>
-				<img src={rigoImage} />
-			</p>
-			<a href="#" className="btn btn-success">
-				If you see this green button... bootstrap is working...
-			</a>
-			<p>
-				Made by{" "}
-				<a href="http://www.4geeksacademy.com">4Geeks Academy</a>, with
-				love!
-			</p>
-		</div>
-	);
-};
+const Home = ({segundos}) => {
+	let string = segundos.toString()
+	let uno = string[string.length -1]
+	let diez = string[string.length -2]
+	let cien = string[string.length -3]
+	let mil = string[string.length -4]
+	let diezmil = string[string.length -5]
+		
+			return(
+			<div className="bigCounter">
+				<div className="icono"> <i class="far fa-clock"></i>
+				</div>
+				<div className="counter box">{diezmil==undefined?"0" : diezmil}</div> 
+				<div className="counter box">{mil==undefined?"0" : mil}</div>
+				<div className="counter box">{cien==undefined?"0" : cien}</div>
+				<div className="counter box">{diez==undefined?"0" : diez}</div>
+				<div className="counter box">{uno==undefined?"0" : uno}</div>
+				
+			</div>);
+		}
 
 export default Home;
